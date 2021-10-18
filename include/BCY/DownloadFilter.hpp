@@ -1,3 +1,4 @@
+#define _TURN_OFF_PLATFORM_STRING
 #ifndef BCY_DOWNLOADFILTER_HPP
 #define BCY_DOWNLOADFILTER_HPP
 #include <SQLiteCpp/SQLiteCpp.h>
@@ -10,22 +11,22 @@ public:
   DownloadFilter() = delete;
   DownloadFilter(DownloadFilter &) = delete;
   ~DownloadFilter();
-  DownloadFilter(std::string DBPath);
+  DownloadFilter(std::wstring DBPath);
   void loadRulesFromJSON(web::json::value rules);
   void addFilterHandler(BCYFilterHandler handle);
   bool shouldBlockItem(DownloadUtils::Info&);
   bool shouldBlockAbstract(web::json::value&);
-  std::vector<std::string> UIDList;
-  std::vector<std::string> TagList;
-  std::vector<std::string> UserNameList;
-  std::vector<std::string> ItemList;
+  std::vector<std::wstring> UIDList;
+  std::vector<std::wstring> TagList;
+  std::vector<std::wstring> UserNameList;
+  std::vector<std::wstring> ItemList;
   // Each should return an integer value. > 0 for allow, =0 for
   // defer, <0 for deny.
-  std::vector<std::string> ScriptList;
+  std::vector<std::wstring> ScriptList;
 private:
   std::vector<BCYFilterHandler> filterHandlers;
   SQLite::Database *DB = nullptr;
-  std::string DBPath;
+  std::wstring DBPath;
 };
 } // namespace BCY
 #endif

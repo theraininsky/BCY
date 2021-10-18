@@ -9,7 +9,7 @@ const char kBase64Alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 class Base64 {
  public:
-  static bool Encode(const std::string &in, std::string *out) {
+  static bool Encode(const std::wstring &in, std::wstring *out) {
     int i = 0, j = 0;
     size_t enc_len = 0;
     unsigned char a3[3];
@@ -18,7 +18,7 @@ class Base64 {
     out->resize(EncodedLength(in));
 
     int input_len = in.size();
-    std::string::const_iterator input = in.begin();
+    std::wstring::const_iterator input = in.begin();
 
     while (input_len--) {
       a3[i++] = *(input++);
@@ -219,7 +219,7 @@ class Base64 {
     return (length + 2 - ((length + 2) % 3)) / 3 * 4;
   }
 
-  inline static int EncodedLength(const std::string &in) {
+  inline static int EncodedLength(const std::wstring &in) {
     return EncodedLength(in.length());
   }
 

@@ -1,19 +1,22 @@
+#define _TURN_OFF_PLATFORM_STRING
 #ifndef BCY_UTILS_HPP
 #define BCY_UTILS_HPP
 #include <cpprest/json.h>
 #include <sstream>
 #include <string>
+#include <codecvt>
+
 namespace BCY {
-std::string bcy_string_to_hex(const std::string &input);//Thank you OpenSSL for polluting my namespace
-std::string generateRandomString(std::string alphabet, size_t length);
-std::string expand_user(std::string path);
-std::string ensure_string(web::json::value foo);
+std::wstring bcy_string_to_hex(const std::wstring &input);//Thank you OpenSSL for polluting my namespace
+std::wstring generateRandomString(std::wstring alphabet, size_t length);
+std::wstring expand_user(std::wstring path);
+std::wstring ensure_string(web::json::value foo);
 template <typename InputIt>
-std::string join(InputIt begin, InputIt end,
-                 const std::string &separator = ", ",
-                 const std::string &concluder = "")
+std::wstring join(InputIt begin, InputIt end,
+                 const std::wstring &separator = ", ",
+                 const std::wstring &concluder = "")
 {
-  std::ostringstream ss;
+  std::wostringstream ss;
 
   if (begin != end) {
     ss << *begin++;
