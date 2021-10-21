@@ -678,9 +678,9 @@ int main(int argc, char **argv) {
       cout << "Failed to Open File at:" << JSONPath << "!" << endl;
     }
   }
-  if (vm["mode"].as<mode>() == mode::Interactive || DU == nullptr) {
+  if (vm["mode"].as<int>() == (int)mode::Interactive || DU == nullptr) {
     Interactive();
-  } else if (vm["mode"].as<mode>() == mode::JSON) {
+  } else if (vm["mode"].as<int>() == (int)mode::JSON) {
     JSONMode();
   } else {
     blockerMode(vm["paths"].as<vector<wstring>>());
