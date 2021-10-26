@@ -3,7 +3,7 @@
 	url = https://github.com/SRombauts/SQLiteCpp.git
 [submodule "ChaiScript"]
 	path = ChaiScript
-	url = https://github.com/ChaiScript/ChaiScript.git
+	url = https://github.com/theraininsky/ChaiScript.git
 [submodule "cryptopp"]
 	path = cryptopp
 	url = https://github.com/weidai11/cryptopp.git
